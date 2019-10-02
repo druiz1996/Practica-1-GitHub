@@ -13,11 +13,11 @@
 			///////////////////////////////////////////////////////////
 			// ALUMNE: David Ruiz Tornés
 			///////////////////////////////////////////////////////////
-			
-			"use strict";
-			
 
-			
+			"use strict";
+
+
+
 			//Funció que retorna la taula de multiplicar passada per paràmetre.
 			function CreacioTaules(start)
 			{
@@ -28,7 +28,7 @@
 						taula += start + "x" + a +" = "+suma+"<br>";
 						a++;
 					};
-				
+
 				return taula;
 
 			}
@@ -37,34 +37,34 @@
 			   el número de taules que hi haura a cada columna.  */
 			function taules(start,stop,ncol) {
 				var html = "";
-				
+
 				html += "<table>";
 				html += "<tr>";
 				var cont=0
 
-				// Passats els paràmetres start i stop inicialitza les taules dintre del rang. 
+				// Passats els paràmetres start i stop inicialitza les taules dintre del rang.
 				while (start <= stop) {
 					html += "<td> Taula de multiplicar "+start;
 					html +="<hr>";
-			
+
 					html += CreacioTaules(start);
 					html += "</td>";
-					
+
 					start++;
 					cont++;
 				/* Comptador que afegeix una nova fila quan el valor del comptador és igual al
-				   del ncol, un cop és crea la fila s'inicialitza el valor del comptador a 0. */ 
+				   del ncol, un cop és crea la fila s'inicialitza el valor del comptador a 0. */
 				if(cont == ncol)
 				{
-					html += "</tr>"; 
-					html += "<tr>"; 
+					html += "</tr>";
+					html += "<tr>";
 					cont = 0;
 				}
-				
+
 				};
 				html += "</tr>";
 				html += "</table>";
-				
+
 				return html;
 			}
 
@@ -77,6 +77,8 @@
 
 	<body onload="init()">
 		<h3>Taules de multiplicar</h3>
+		<br>
+		<p>Edicio branca</p>
 		<div id="tm"></div>
 	</body>
 </html>
