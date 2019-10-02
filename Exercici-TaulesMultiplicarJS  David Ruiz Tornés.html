@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ca">
+	<head>
+		<title>Taules de multiplicar</title>
+		<meta charset="UTF-8" />
+
+		<style>
+			table td{border:1px solid black;}
+			strong{color:#0000FF;}
+		</style>
+
+		<script>
+			///////////////////////////////////////////////////////////
+			// ALUMNE: David Ruiz Tornés
+			///////////////////////////////////////////////////////////
+			
+			"use strict";
+			
+
+			
+			//Funció que retorna la taula de multiplicar passada per paràmetre.
+			function CreacioTaules(start)
+			{
+				var a = 1;
+				var taula ="";
+				while(a <=10) {
+						var suma = start * a;
+						taula += start + "x" + a +" = "+suma+"<br>";
+						a++;
+					};
+				
+				return taula;
+
+			}
+			/* Funció que retorna les taules de multiplicar passades per paràmetre,
+			   start indicant la taula inicial, stop indicant la última i ncol indicant
+			   el número de taules que hi haura a cada columna.  */
+			function taules(start,stop,ncol) {
+				var html = "";
+				
+				html += "<table>";
+				html += "<tr>";
+				var cont=0
+
+				// Passats els paràmetres start i stop inicialitza les taules dintre del rang. 
+				while (start <= stop) {
+					html += "<td> Taula de multiplicar "+start;
+					html +="<hr>";
+			
+					html += CreacioTaules(start);
+					html += "</td>";
+					
+					start++;
+					cont++;
+				/* Comptador que afegeix una nova fila quan el valor del comptador és igual al
+				   del ncol, un cop és crea la fila s'inicialitza el valor del comptador a 0. */ 
+				if(cont == ncol)
+				{
+					html += "</tr>"; 
+					html += "<tr>"; 
+					cont = 0;
+				}
+				
+				};
+				html += "</tr>";
+				html += "</table>";
+				
+				return html;
+			}
+
+			function init() {
+				var tm = document.getElementById("tm");
+				tm.innerHTML = taules(3,15,4);
+			}
+		</script>
+	</head>
+
+	<body onload="init()">
+		<h3>Taules de multiplicar</h3>
+		<div id="tm"></div>
+	</body>
+</html>
